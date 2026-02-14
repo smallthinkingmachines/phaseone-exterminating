@@ -68,7 +68,6 @@ export default function AboutPage() {
                   key={index}
                   className="text-center p-6 bg-zinc-950 rounded-xl"
                 >
-                  <div className="text-5xl mb-4">🏆</div>
                   <h4 className="text-xl font-bold text-white mb-2">
                     {cert.name}
                   </h4>

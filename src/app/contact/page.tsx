@@ -2,6 +2,7 @@ import InnerPageHero from "@/components/layout/InnerPageHero";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import ContactForm from "@/components/ContactForm";
+import { Facebook, Instagram } from "lucide-react";
 import { COMPANY_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function ContactPage() {
@@ -30,7 +31,6 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="text-3xl">📞</div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
                       Phone
@@ -48,7 +48,6 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="text-3xl">✉️</div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
                       Email
@@ -63,7 +62,6 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="text-3xl">📍</div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
                       Service Area
@@ -75,7 +73,6 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="text-3xl">⏰</div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
                       Business Hours
@@ -91,24 +88,24 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold text-white mb-4">
                   Follow Us
                 </h3>
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                   <a
                     href={SOCIAL_LINKS.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-2xl"
+                    className="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-primary hover:text-white text-gray-400 rounded-lg transition-all"
                     aria-label="Facebook"
                   >
-                    📘
+                    <Facebook size={24} />
                   </a>
                   <a
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-2xl"
+                    className="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-primary hover:text-white text-gray-400 rounded-lg transition-all"
                     aria-label="Instagram"
                   >
-                    📷
+                    <Instagram size={24} />
                   </a>
                 </div>
               </div>

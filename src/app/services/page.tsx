@@ -35,7 +35,6 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="text-5xl mb-4">{service.icon}</div>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                     {service.title}
                   </h2>

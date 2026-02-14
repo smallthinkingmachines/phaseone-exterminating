@@ -15,16 +15,13 @@ export default function PolicyWarrantyPage() {
           <div className="space-y-12">
             {/* Warranty Section */}
             <div className="bg-zinc-900 rounded-2xl p-8 md:p-12">
-              <div className="flex items-start space-x-4 mb-6">
-                <span className="text-5xl">🛡️</span>
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
-                    30-Day Service Warranty
-                  </h2>
-                  <p className="text-xl text-primary">
-                    Your satisfaction is guaranteed
-                  </p>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  30-Day Service Warranty
+                </h2>
+                <p className="text-xl text-primary">
+                  Your satisfaction is guaranteed
+                </p>
               </div>
 
               <div className="space-y-6 text-gray-300">
@@ -82,16 +79,13 @@ export default function PolicyWarrantyPage() {
 
             {/* Refund Policy Section */}
             <div className="bg-zinc-900 rounded-2xl p-8 md:p-12">
-              <div className="flex items-start space-x-4 mb-6">
-                <span className="text-5xl">📋</span>
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
-                    No Refund Policy
-                  </h2>
-                  <p className="text-xl text-gray-400">
-                    Understanding our service terms
-                  </p>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  No Refund Policy
+                </h2>
+                <p className="text-xl text-gray-400">
+                  Understanding our service terms
+                </p>
               </div>
 
               <div className="space-y-6 text-gray-300">

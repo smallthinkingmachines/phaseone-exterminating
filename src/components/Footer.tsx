@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { COMPANY_INFO, SOCIAL_LINKS, NAV_ITEMS } from "@/lib/constants";
 
 export default function Footer() {
@@ -41,34 +42,36 @@ export default function Footer() {
             <div className="space-y-2">
               <a
                 href={`tel:${COMPANY_INFO.phone}`}
-                className="block text-gray-400 hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors"
               >
-                📞 {COMPANY_INFO.phone}
+                <Phone size={18} />
+                <span>{COMPANY_INFO.phone}</span>
               </a>
               <a
                 href={`mailto:${COMPANY_INFO.email}`}
-                className="block text-gray-400 hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors"
               >
-                ✉️ {COMPANY_INFO.email}
+                <Mail size={18} />
+                <span>{COMPANY_INFO.email}</span>
               </a>
-              <div className="flex space-x-4 pt-4">
+              <div className="flex space-x-3 pt-4">
                 <a
                   href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary transition-colors text-2xl"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary hover:text-white text-gray-400 transition-all"
                   aria-label="Facebook"
                 >
-                  📘
+                  <Facebook size={20} />
                 </a>
                 <a
                   href={SOCIAL_LINKS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary transition-colors text-2xl"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary hover:text-white text-gray-400 transition-all"
                   aria-label="Instagram"
                 >
-                  📷
+                  <Instagram size={20} />
                 </a>
               </div>
             </div>

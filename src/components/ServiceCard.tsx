@@ -26,7 +26,6 @@ export default function ServiceCard({
     >
       <Link href={href}>
         <Card hover className="p-6 h-full">
-          <div className="text-5xl mb-4">{icon}</div>
           <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
           <p className="text-gray-400">{description}</p>
         </Card>
