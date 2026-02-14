@@ -112,8 +112,8 @@ npm start
 
 Edit `tailwind.config.ts` to customize the color scheme:
 
-- **Primary (Green)**: `#22C55E`
-- **Accent (Amber)**: `#F59E0B`
+- **Primary (Red)**: `#EF4444`
+- **Accent (Red)**: `#EF4444`
 
 ### Company Information
 
@@ -139,18 +139,31 @@ const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
 
 ## Deployment
 
-This is a standard Next.js app and can be deployed to:
+This project is configured for deployment on **Hostinger** using **Dokploy**.
 
-- Vercel (recommended)
-- Netlify
-- Any Node.js hosting platform
+### Deployment Steps
 
-### Deploy to Vercel
+1. Push your code to a Git repository (GitHub, GitLab, etc.)
+2. In Dokploy on Hostinger:
+   - Create a new application
+   - Connect your Git repository
+   - Set build command: `npm run build`
+   - Set start command: `npm start`
+   - Configure environment variables if needed
+   - Deploy!
 
-```bash
-npm install -g vercel
-vercel
-```
+### Build Configuration
+
+The application uses:
+- **Node.js 22** (via Nix)
+- **Next.js 15** with App Router
+- Standard Next.js build output
+
+### Environment Variables
+
+No environment variables are required for basic deployment. Optional:
+
+- `NEXT_PUBLIC_FORMSPREE_ID` - For contact form integration
 
 ## License
 
