@@ -1,43 +1,67 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useRef } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import Button from "./ui/Button";
 import { HEAR_ABOUT_OPTIONS } from "@/lib/constants";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
+
+    if (!turnstileToken) {
+      setError("Please complete the CAPTCHA before submitting.");
+      setIsSubmitting(false);
+      return;
+    }
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const payload = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      address: formData.get("address"),
+      hearAbout: formData.get("hear-about"),
+      message: formData.get("message"),
+      turnstileToken,
+    };
+
     try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setIsSuccess(true);
         form.reset();
-        setTimeout(() => setIsSuccess(false), 5000);
+        setTurnstileToken(null);
+        setTimeout(() => setIsSuccess(false), 6000);
+      } else {
+        setError(data.error ?? "Something went wrong. Please try again.");
       }
-    } catch (error) {
-      console.error("Form submission error:", error);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -126,6 +150,22 @@ export default function ContactForm() {
           placeholder="Tell us about your pest control needs..."
         />
       </div>
+
+      <Turnstile
+        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ""}
+        onSuccess={setTurnstileToken}
+        onExpire={() => setTurnstileToken(null)}
+        onError={() => {
+          setTurnstileToken(null);
+          setError("CAPTCHA failed to load. Please refresh the page.");
+        }}
+      />
+
+      {error && (
+        <div className="p-4 bg-red-900/20 border border-red-500/50 rounded-lg text-red-400 text-sm">
+          {error}
+        </div>
+      )}
 
       {isSuccess && (
         <div className="p-4 bg-primary/20 border border-primary rounded-lg text-primary">

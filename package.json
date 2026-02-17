@@ -6,26 +6,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "import-subscribers": "tsx scripts/import-subscribers.ts"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.4.2",
+    "better-sqlite3": "^12.6.2",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.1",
     "framer-motion": "^12.0.0",
     "lucide-react": "^0.564.0",
     "next": "^15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "resend": "^6.9.2",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.0.0",
+    "csv-parse": "^6.1.0",
+    "drizzle-kit": "^0.31.9",
     "eslint": "^8.0.0",
     "eslint-config-next": "^15.1.4",
     "postcss": "^8.0.0",
     "tailwindcss": "^3.4.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.0.0"
   }
 }

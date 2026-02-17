@@ -1,7 +1,7 @@
 export const COMPANY_INFO = {
   name: "Phaseone Exterminating",
-  phone: "(845) 592-0967",
-  email: "info@phaseoneexterminating.net",
+  phone: "347.551.6398",
+  email: "contact@phaseoneexterminating.net",
   address: {
     street: "123 Main Street",
     city: "New York",
@@ -15,6 +15,7 @@ export const COMPANY_INFO = {
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/phaseoneexterminating",
   instagram: "https://www.instagram.com/phaseoneexterminating",
+  yelp: "https://www.yelp.com/biz/phaseone-exterminating-new-york",
 };
 
 export const NAV_ITEMS = [

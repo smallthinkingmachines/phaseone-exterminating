@@ -42,3 +42,9 @@ next-env.d.ts
 
 # nix
 result
+
+# SQLite database
+/data/
+
+# Drizzle migrations output
+/drizzle/
